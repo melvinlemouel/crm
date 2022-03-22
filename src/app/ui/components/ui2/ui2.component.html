@@ -1,0 +1,23 @@
+<div class="ui">
+  <header>
+    <span (click)="toggleSidenav()">
+      <ng-container *ngIf="isClosed; then thenBlock; else elseBlock"></ng-container>
+    </span>
+    <ng-template #thenBlock>
+      <ng-content select=".tr-btn-open"></ng-content>
+    </ng-template>
+    <ng-template #elseBlock>
+      <ng-content select=".tr-btn-close"></ng-content>
+    </ng-template>
+    <ng-content select=".tr-header"></ng-content>
+  </header>
+  <nav [ngClass]="{'close-aside': isClosed}">
+    <ng-content select=".tr-nav"></ng-content>
+  </nav>
+  <main>
+    <ng-content select=".tr-content"></ng-content>
+  </main>
+  <footer>
+    <ng-content select=".tr-footer"></ng-content>
+  </footer>
+</div>
