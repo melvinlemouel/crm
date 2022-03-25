@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'src/app/core/models/client';
 import { ClientsService } from '../../services/clients.service';
 
@@ -11,30 +10,24 @@ import { ClientsService } from '../../services/clients.service';
 })
 export class PageEditClientComponent implements OnInit {
   client!: Client;
-  clientForm!: FormGroup;
 
   constructor(
     private clientService: ClientsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.route.params.subscribe((param) => {
       this.clientService.getClient(param['id']).subscribe((client) => {
-        this.client = client;
-        this.clientForm = new FormGroup({
-          name: new FormControl(this.client.name),
-          comment: new FormControl(this.client.comment),
-        });
+        this.client = new Client(client);
       });
     });
   }
 
   ngOnInit(): void {}
 
-  saveClient() {
+  updateClient(client: Client) {
     this.clientService
-      .updateClient(
-        new Client({ ...this.client, ...this.clientForm.value })
-      )
-      .subscribe((x) => console.log(x));
+      .updateClient(client)
+      .subscribe(() => this.router.navigate(['clients']));
   }
 }

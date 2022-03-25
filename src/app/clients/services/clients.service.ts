@@ -19,15 +19,29 @@ export class ClientsService {
     return this.http.get<Client>(environment.apiUrl + '/clients/' + id);
   }
 
-  updateClient(client: Client): Observable<Client> {
-    return this.http.put<Client>(environment.apiUrl + '/clients/' + client.id, client, {
+  createClient(client: Client): Observable<Client> {
+    return this.http.post<Client>(environment.apiUrl + '/clients', client, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     });
   }
 
+  updateClient(client: Client): Observable<Client> {
+    return this.http.put<Client>(
+      environment.apiUrl + '/clients/' + client.id,
+      client,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      }
+    );
+  }
+
   updateState(client: Client, state: StateClient): Observable<Client> {
-    const obj = new Client(client)
-    obj.state = state
-    return this.updateClient(obj)
+    const obj = new Client(client);
+    obj.state = state;
+    return this.updateClient(obj);
+  }
+
+  deleteClient(id: number): Observable<Client> {
+    return this.http.delete<Client>(environment.apiUrl + '/clients/' + id);
   }
 }

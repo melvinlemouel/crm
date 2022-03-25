@@ -1,7 +1,3 @@
-<form *ngIf="clientForm" [formGroup]="clientForm" action="">
-  <label for="name">Nom</label>
-  <input id="name" type="text" formControlName="name" placeholder="Nom">
-  <label for="comment">Commentaire</label>
-  <input id="comment" type="text" formControlName="comment" placeholder="Commentaire">
-  <button type="submit" (click)="saveClient()">Enregistrer</button>
-</form>
+<app-template-container>
+  <app-form-client [init]="client" (submitted)="updateClient($event)"></app-form-client>
+</app-template-container>

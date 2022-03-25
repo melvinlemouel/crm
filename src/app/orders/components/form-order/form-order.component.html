@@ -1,0 +1,56 @@
+<form *ngIf="init" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="typePresta">type</label>
+    <input type="text" class="form-control" id="typePresta" formControlName="typePresta">
+    <div class="alert alert-danger"
+      *ngIf="orderForm.controls['typePresta'].invalid && orderForm.controls['typePresta'].touched">
+      champ invalide</div>
+  </div>
+
+  <div class="form-group">
+    <label for="client">client</label>
+    <input type="text" class="form-control" id="client" formControlName="client">
+    <div class="alert alert-danger"
+      *ngIf="orderForm.controls['client'].invalid && orderForm.controls['client'].touched">
+      champ invalide</div>
+  </div>
+
+  <div class="form-group">
+    <label for="nbJours">nbJours</label>
+    <input type="number" class="form-control" id="nbJours" formControlName="nbJours">
+    <div class="alert alert-danger"
+      *ngIf="orderForm.controls['nbJours'].invalid && orderForm.controls['nbJours'].touched">
+      champ invalide</div>
+  </div>
+
+  <div class="form-group">
+    <label for="tjmHt">tjmHt</label>
+    <input type="number" class="form-control" id="tjmHt" formControlName="tjmHt">
+    <div class="alert alert-danger" *ngIf="orderForm.controls['tjmHt'].invalid && orderForm.controls['tjmHt'].touched">
+      champ invalide</div>
+  </div>
+
+  <div class="form-group">
+    <label for="tva">tva</label>
+    <input type="number" class="form-control" id="tva" formControlName="tva">
+    <div class="alert alert-danger" *ngIf="orderForm.controls['tva'].invalid && orderForm.controls['tva'].touched">
+      champ invalide</div>
+  </div>
+
+  <div class="form-group">
+    <label for="state">state</label>
+    <select class="form-control" id="state" formControlName="state">
+      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="orderForm.controls['state'].invalid && orderForm.controls['state'].touched">
+      champ invalide</div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment">comment</label>
+    <textarea class="form-control" id="comment" formControlName="comment"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

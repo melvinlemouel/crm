@@ -9,6 +9,10 @@
           <option *ngFor="let state of states" [value]="state" [selected]="item.state === state">{{state}}</option>
         </select>
       </td>
+      <td>
+        <app-icon-edit (click)="editClient(item.id)"></app-icon-edit>
+        <app-icon-delete (click)="deleteClient(item.id)"></app-icon-delete>
+      </td>
     </tr>
   </app-table-light>
   <app-btn label="add client" route="add"></app-btn>

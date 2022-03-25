@@ -1,32 +1,3 @@
-<form *ngIf="orderForm" [formGroup]="orderForm" action="">
-  <div class="input-form">
-    <label for="client">Client</label>
-    <input id="client" type="text" formControlName="client" placeholder="Client">
-  </div>
-  <div class="input-form">
-    <label for="typePresta">Type prestation</label>
-    <input id="typePresta" type="text" formControlName="typePresta" placeholder="Type prestation">
-  </div>
-  <div class="input-form">
-    <label for="tva">TVA</label>
-    <input id="tva" type="number" formControlName="tva" placeholder="TVA">
-  </div>
-  <div class="input-form">
-    <label for="comment">Commentaire</label>
-    <input id="comment" type="text" formControlName="comment" placeholder="Commentaire">
-  </div>
-  <div class="input-form">
-    <label for="tjm">TJM</label>
-    <input id="tjm" type="number" formControlName="tjmHt" placeholder="TJM">
-  </div>
-  <div class="input-form">
-    <label for="nbJours">Nb Jours</label>
-    <input id="nbJours" type="number" formControlName="nbJours" placeholder="Nb Jours">
-  </div>
-  <div class="input-form">
-    <select formControlName="state">
-      <option *ngFor="let state of states" [value]="state">{{state}}</option>
-    </select>
-  </div>
-  <button type="submit" (click)="createOrder()">Enregistrer</button>
-</form>
+<app-template-container title="add order">
+  <app-form-order [init]="order" (submitted)="createOrder($event)"></app-form-order>
+</app-template-container>

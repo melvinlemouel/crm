@@ -49,26 +49,6 @@
       "client": "Modis",
       "comment": "Merci Modis pour les 10k",
       "id": 5
-    },
-    {
-      "tjmHt": 900,
-      "nbJours": 25,
-      "tva": 20,
-      "state": "CONFIRMED",
-      "typePresta": "formation",
-      "client": "Atos",
-      "comment": "RAS",
-      "id": 6
-    },
-    {
-      "client": "CGI",
-      "typePresta": "Dev",
-      "tva": 20,
-      "comment": "frf",
-      "tjmHt": 1200,
-      "nbJours": 1,
-      "state": "OPTION",
-      "id": 7
     }
   ],
   "clients": [
