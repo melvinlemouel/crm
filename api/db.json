@@ -4,7 +4,7 @@
       "tjmHt": 1200,
       "nbJours": 20,
       "tva": 20,
-      "state": "OPTION",
+      "state": "CANCELED",
       "typePresta": "formation",
       "client": "Capgemini2",
       "comment": "Merci Cap pour les 24k",
@@ -49,11 +49,31 @@
       "client": "Modis",
       "comment": "Merci Modis pour les 10k",
       "id": 5
+    },
+    {
+      "tjmHt": 900,
+      "nbJours": 25,
+      "tva": 20,
+      "state": "CONFIRMED",
+      "typePresta": "formation",
+      "client": "Atos",
+      "comment": "RAS",
+      "id": 6
+    },
+    {
+      "client": "CGI",
+      "typePresta": "Dev",
+      "tva": 20,
+      "comment": "frf",
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "state": "OPTION",
+      "id": 7
     }
   ],
   "clients": [
     {
-      "state": "INACTIVE",
+      "state": "ACTIVE",
       "tva": 20,
       "id": 1,
       "name": "Capgemini",
@@ -64,9 +84,9 @@
       "state": "ACTIVE",
       "tva": 20,
       "id": 2,
-      "name": "Modis",
+      "name": "Atos Bull",
       "totalCaHt": 120000,
-      "comment": "un comment pour client modis"
+      "comment": "Worldwide companyy"
     },
     {
       "tva": 20,

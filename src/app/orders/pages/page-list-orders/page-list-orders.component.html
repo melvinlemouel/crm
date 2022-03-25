@@ -1,1 +1,18 @@
-<p>page-list-orders works!</p>
+<app-template-full-width *ngIf="orders$ | async as orders" [title]="title">
+  <app-table-light [headers]="headers">
+    <tr *ngFor="let item of orders">
+      <td>{{ item.typePresta | uppercase }}</td>
+      <td>{{ item.client }}</td>
+      <td>{{ item.nbJours }}</td>
+      <td>{{ item.tjmHt | currency }}</td>
+      <td>{{ item.nbJours | total: item.tjmHt | currency }}</td>
+      <td>{{ item.nbJours | total : item.tjmHt : item.tva | currency }}</td>
+      <td [appState]="item.state">
+        <select (change)="updateState(item, $event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="item.state === state">{{state}}</option>
+        </select>
+      </td>
+    </tr>
+  </app-table-light>
+  <app-btn label="add order" route="add"></app-btn>
+</app-template-full-width>
